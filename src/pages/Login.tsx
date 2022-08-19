@@ -18,9 +18,9 @@ function Login({}) {
   }
 
   return (
-    <div className='flex-center h-screen w-screen'>
+    <div className='flex-center h-screen w-screen px-4'>
       <form onSubmit={handleSubmit(onSubmit)}
-            className='flex flex-col justify-between items-center w-[30rem] h-3/4 shadow bg-white p-20'>
+            className='flex flex-col justify-between items-center w-[30rem] h-3/4 shadow bg-white p-10 md:p-20'>
         <Typography>
           ورود به حساب کاربری
         </Typography>
