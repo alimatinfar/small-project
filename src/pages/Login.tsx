@@ -3,12 +3,19 @@ import Typography from "../components/UI/Typography/Typography";
 import {useForm} from "react-hook-form";
 import UserNameField from "../components/pages/Login/UserNameField";
 import PasswordField from "../components/pages/Login/PasswordField";
+import Ls from "../utils/localStorage";
+import {useNavigate} from "react-router";
 
 
 function Login({}) {
 
   const {register, handleSubmit, watch, formState: {errors}} = useForm();
-  const onSubmit = (data: any) => console.log('data', data);
+  const navigate = useNavigate()
+
+  function onSubmit(data: any) {
+    Ls.add('userInfo', data)
+    navigate('/')
+  }
 
   return (
     <div className='flex-center h-screen w-screen'>

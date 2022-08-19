@@ -6,14 +6,12 @@ import RouteIsNotExists from "./components/RouteIsNotExists";
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/login" element={<Login/>}/>
 
-        <Route path="*" element={<RouteIsNotExists />} />
-      </Routes>
-    </div>
+      <Route path="*" element={<RouteIsNotExists/>}/>
+    </Routes>
   );
 }
 
