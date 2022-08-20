@@ -9,10 +9,11 @@ type Props = {
   register?: (name: string, options: object) => void,
   name?: string,
   options?: object,
-  errorMessage?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
+  errorMessage?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined,
+  onChange?: (e:any) => void,
 }
 
-function Input({label, value, defaultValue, placeholder, register, name, options, errorMessage}: Props) {
+function Input({label, value, defaultValue, placeholder, register, name, options, errorMessage, onChange}: Props) {
 
   const inputClassName = `py-3 px-4 rounded w-full outline-none duration-300
    border border-gray-200 hover:border-gray-300 focus:border-gray-400`
@@ -27,6 +28,7 @@ function Input({label, value, defaultValue, placeholder, register, name, options
         </label>
         <input
           {...(register ? register(name!, options!) : {})}
+          {...(onChange ? {onChange: onChange} : {})}
           {...(value && {value: value})}
           autoComplete="off"
           {...(defaultValue && {defaultValue: defaultValue})}

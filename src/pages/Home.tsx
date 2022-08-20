@@ -19,8 +19,6 @@ function Home() {
     <>
       <Header userInfo={userInfo} />
 
-      <Search />
-
       <ItemsList />
     </>
   );
