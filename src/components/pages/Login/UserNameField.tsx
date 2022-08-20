@@ -1,5 +1,5 @@
 import Input from "../../UI/Input/Input";
-import {FormFieldType} from "../../../Types/FormFieldType";
+import {FormFieldType} from "../../../types/FormFieldType";
 
 function UserNameField({register, errorMessage}: FormFieldType) {
   return (

@@ -1,10 +1,10 @@
 import useTypographySizes from "./hooks/useTypographySizes";
 import {ReactNode} from "react";
 
-type SizeTypes = 'xs' | 'sm' | 'md'| 'lg'| 'xl'
+export type TypographySizeTypes = 'xs' | 'sm' | 'md'| 'lg'| 'xl'
 
 type Props = {
-  size?: SizeTypes,
+  size?: TypographySizeTypes,
   className?: string,
   children: ReactNode
 }
