@@ -1,14 +1,15 @@
-import useAxios from "../../../../hooks/useAxios";
 import {useEffect, useState} from "react";
 import KeyValue from "../../../KeyValue";
 import Pagination from "../../../pagination";
 import Search from "../Search";
 import Container from "../../../Container";
+import {useItems, useSetItemsSearchedCount} from "../../../../contexes/ItemsContext";
+
 
 function ItemsList() {
 
-  const [itemsRes, getItems] = useAxios()
-
+  const itemsRes = useItems()
+  const [, setItemsSearchedCountHandler] = useSetItemsSearchedCount()
 
   const [items, setItems] = useState([])
   const [itemSearched, setItemSearched] = useState<null | []>(null)
@@ -16,13 +17,16 @@ function ItemsList() {
 
 
   useEffect(function () {
-    getItems({url: '/todos'}).then(response => {
-      setItemSearched(response)
-    })
-  }, [])
+    if (itemsRes.data) {
+      setItemSearched(itemsRes.data)
+    }
+  }, [itemsRes])
 
   useEffect(function () {
-    if (itemSearched !== null) setPage(1)
+    if (itemSearched !== null) {
+      setItemsSearchedCountHandler(itemSearched.length)
+      setPage(1)
+    }
   }, [itemSearched])
 
   useEffect(function () {
@@ -49,7 +53,7 @@ function ItemsList() {
         <div className='grid grid-cols-3  gap-6'>
           {items.length !== 0 && items.map((item: any) => {
             return (
-              <div key={item.id} className='space-y-3 border border-gray-200 rounded p-3'>
+              <div key={item.id} className='space-y-3 duration-300 cursor-pointer border border-gray-200 hover:border-gray-400 rounded p-3'>
                 {Object.keys(item).map((itemKey: string) => {
                   return (
                     <KeyValue title={itemKey} value={item[itemKey].toString()} direction='ltr'/>
