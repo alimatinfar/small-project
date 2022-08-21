@@ -1,4 +1,4 @@
-import useTypographySizes from "./hooks/useTypographySizes";
+import useTypographySizes from "../../../hooks/components/Typography/useTypographySizes";
 import {ReactNode} from "react";
 
 export type TypographySizeTypes = 'xs' | 'sm' | 'md'| 'lg'| 'xl'

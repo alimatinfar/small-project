@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
-import useButtonTypes from "./hooks/useButtonTypes";
-import useButtonSizes from "./hooks/useButtonSizes";
+import useButtonTypes from "../../../hooks/components/Button/useButtonTypes";
+import useButtonSizes from "../../../hooks/components/Button/useButtonSizes";
 
 type ButtonTypes = 'primary' | 'primaryOutline'
 type ButtonSizes = 'md' | 'lg' | 'full'
